@@ -1693,6 +1693,19 @@ function __detect_shell() {
     return
 }
 
+# Build with recorded building log
+function mk_log()
+{
+    mkdir log
+    mka bacon | tee log/aosplime_$(CUSTOM_VERSION).log
+}
+
+# Show building log
+function oplog()
+{
+    cat log/aosplime_$(CUSTOM_VERSION).log
+}
+
 if ! __detect_shell > /dev/null; then
     echo "WARNING: Only bash and zsh are supported, use of other shell may lead to erroneous results"
 fi
