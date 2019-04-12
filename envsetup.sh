@@ -11,11 +11,13 @@ Invoke ". build/envsetup.sh" from your shell to add the following functions to y
 - tapas:     tapas [<App1> <App2> ...] [arm|x86|mips|arm64|x86_64|mips64] [eng|userdebug|user]
 - croot:     Changes directory to the top of the tree.
 - m:         Makes from the top of the tree.
+- mk: Start building ROM and record the log.
 - mm:        Builds all of the modules in the current directory, but not their dependencies.
 - mmm:       Builds all of the modules in the supplied directories, but not their dependencies.
              To limit the modules being built use the syntax: mmm dir/:target1,target2.
 - mma:       Builds all of the modules in the current directory, and their dependencies.
 - mmma:      Builds all of the modules in the supplied directories, and their dependencies.
+- op_log: Show recorded log.
 - provision: Flash device with all required partitions. Options will be passed on to fastboot.
 - cgrep:     Greps on all local C/C++ files.
 - ggrep:     Greps on all local Gradle files.
@@ -1697,13 +1699,13 @@ function __detect_shell() {
 function mk_log()
 {
     mkdir log
-    mka bacon | tee log/aosplime_$(CUSTOM_VERSION).log
+    mka bacon | tee log/aosplime_$CUSTOM_VERSION.log
 }
 
 # Show building log
-function oplog()
+function op_log()
 {
-    cat log/aosplime_$(CUSTOM_VERSION).log
+    cat log/aosplime_$CUSTOM_VERSION.log
 }
 
 if ! __detect_shell > /dev/null; then
