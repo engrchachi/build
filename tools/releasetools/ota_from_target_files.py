@@ -830,7 +830,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 
   script.Print("----------------------------------------------");
   script.Print("                AospLime ROM");
-  script.Print("                 by darkthur");
+  script.Print("        by darkthur and engr.chachi ");
   script.Print("----------------------------------------------");
   script.Print(" Android version: %s"%(android_version));
   script.Print(" Build id: %s"%(build_id));
